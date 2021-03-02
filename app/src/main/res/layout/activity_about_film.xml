@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#C3C3c3"
+    tools:context=".view.AboutFilm">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/friends_frame"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/poster"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/avat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imgZvezda"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:id="@+id/zvezda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="TextView"
+                        android:textColor="#272727"
+                        android:textSize="17dp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/titleFilm"
+                android:textSize="16dp"
+                android:textColor="#272727"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/s1"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s2"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s3"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s4"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s5"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s6"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s7"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s8"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s9"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/s10"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+
+                    app:srcCompat="@drawable/empty_star" />
+
+                <ImageView
+                    android:id="@+id/vote"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginTop="2dp"
+
+                    app:srcCompat="@drawable/vote_grey" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/opisanie"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:textColor="#272727"
+                android:text="TextView" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

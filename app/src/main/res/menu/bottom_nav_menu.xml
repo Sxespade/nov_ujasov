@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@color/cardview_dark_background"
+        android:title="Главная" />
+
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@color/cardview_dark_background"
+        android:title="Подписки" />
+
+    <item
+        android:id="@+id/navigation_notificatio"
+        android:icon="@color/cardview_dark_background"
+        android:title="Топ" />
+
+
+    <item
+        android:id="@+id/navigation_notificatio1"
+        android:icon="@color/cardview_dark_background"
+        android:title="Избранные" />
+
+    <item
+        android:id="@+id/navigation_notificatio2"
+        android:icon="@color/cardview_dark_background"
+        android:title="Профиль" />
+
+
+
+
+</menu>

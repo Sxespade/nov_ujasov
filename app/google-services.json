@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "510131804555",
+    "firebase_url": "https://goodhorror-11922-default-rtdb.firebaseio.com",
+    "project_id": "goodhorror-11922",
+    "storage_bucket": "goodhorror-11922.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510131804555:android:27b6106021c38b73d4378e",
+        "android_client_info": {
+          "package_name": "com.horrors.newhorror"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510131804555-94n17942b0173f34nbifogl7v1d124gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.horrors.newhorror",
+            "certificate_hash": "4e835c8ef57a73a6637879d4352fe88ec3ccd0f4"
+          }
+        },
+        {
+          "client_id": "510131804555-g104798sub53oue7tgcakh7fvpduo4o2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhj7-T-wUHfACX5xcJePrNJZPgPWOMMsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510131804555-g104798sub53oue7tgcakh7fvpduo4o2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

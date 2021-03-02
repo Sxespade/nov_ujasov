@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Новые ужасы</string>
+    <string name="your_rec">Ваши рекомендации</string>
+    <string name="friendsRec">Рекомендации друзей</string>
+    <string name="best_recom">Лучшие рекомендации</string>
+    <string name="header_title">Хэдер</string>
+    <string name="header_text">хэдер</string>
+    <string name="top_app_bar">Вот</string>
+    <string name="title_1">2021</string>
+    <string name="title_2">Квартал 1</string>
+    <string name="textview">Топ фильмов ужасов 1 квартала 2021</string>
+    <string name="extended_fab_label">Добавить фильм</string>
+    <string name="exit">Выйти</string>
+    <string name="title_3">Квартал 2</string>
+    <string name="title_4">Квартал 3</string>
+    <string name="title_5">Квартал 4</string>
+
+</resources>
