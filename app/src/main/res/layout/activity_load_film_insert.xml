@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.LoadFilmInsert"
-    android:background="#C3C3C3">
+    android:background="#C3C3C3"
+    tools:context=".view.LoadFilmInsert">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="15dp">
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
             android:id="@+id/textInput"
@@ -26,6 +27,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <AutoCompleteTextView
+            android:id="@+id/textInput2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:completionThreshold="1"
+            android:hint="Введите год фильма...не позднее 2019"
+            android:textColor="#252525"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
@@ -35,6 +48,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInput" />
 
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Расширенный поиск"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInput"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="120dp"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/avat"
+            tools:visibility="gone" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Добавить"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInput"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Параметры фильма не подходят для поиска" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclForFind"
             android:layout_width="wrap_content"
@@ -43,6 +91,6 @@
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

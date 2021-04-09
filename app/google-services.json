@@ -8,18 +8,26 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:510131804555:android:27b6106021c38b73d4378e",
+        "mobilesdk_app_id": "1:510131804555:android:9eff983b5c8d77c5d4378e",
         "android_client_info": {
           "package_name": "com.horrors.newhorror"
         }
       },
       "oauth_client": [
         {
-          "client_id": "510131804555-94n17942b0173f34nbifogl7v1d124gc.apps.googleusercontent.com",
+          "client_id": "510131804555-fo1vcbsbl3tt0dvqc20gmdff6v024fcn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.horrors.newhorror",
             "certificate_hash": "4e835c8ef57a73a6637879d4352fe88ec3ccd0f4"
+          }
+        },
+        {
+          "client_id": "510131804555-snhml4p5gp9v69jas47eu7ib5r3k70oq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.horrors.newhorror",
+            "certificate_hash": "9d239788e3015e0b3f3c05110ffa141785a7c1b1"
           }
         },
         {

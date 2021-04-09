@@ -13,6 +13,7 @@
         android:id="@+id/xxx"
         android:layout_width="50dp"
         android:layout_height="72dp"
+        android:layout_margin="5dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
