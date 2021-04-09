@@ -5,20 +5,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.MainThread
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.android.gms.common.util.MurmurHash3
+import com.google.firebase.database.*
 import com.horrors.newhorror.IUserListPresenter2
 import com.horrors.newhorror.R
 import com.horrors.newhorror.SerialItemView2
 import com.horrors.newhorror.SerialsAdapter5
 import com.horrors.newhorror.di.module.Serial
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers.io
+import io.reactivex.rxjava3.core.ObservableSource
+import io.reactivex.rxjava3.core.SingleSource
+import io.reactivex.rxjava3.internal.operators.observable.ObservableFromIterable
+import io.reactivex.rxjava3.schedulers.Schedulers.*
+import io.reactivex.rxjava3.subjects.Subject
 import kotlinx.android.synthetic.main.fragment_quartal_1_2021.*
 import moxy.MvpAppCompatFragment
 import java.util.*
@@ -48,12 +52,15 @@ class TopFirstQuartalFragment : MvpAppCompatFragment() {
         drw.openDrawer(GravityCompat.START)
         ccc.setOnClickListener { drw.openDrawer(GravityCompat.START) }
 
+        var ls = mutableListOf<Serial>()
+
 
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("film_titles")
 
 
         Observable.create<List<String>> {
+            var list = mutableListOf<String>()
             myRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
@@ -63,69 +70,69 @@ class TopFirstQuartalFragment : MvpAppCompatFragment() {
                     if (snapshot.value != null) {
                         var map = snapshot.value as HashMap<String, String>
                         Log.d("ddddd", "onDataChange: " + map.keys)
-                        var list = mutableListOf<String>()
+
                         for (mutableEntry in map.keys) {
                             list.add(mutableEntry)
                         }
-                        it.onNext(list)
                     }
+                    it.onNext(list)
                 }
             })
-        }.subscribeOn(io()).subscribe({
-            var list = it
-            var listSerial2 = mutableListOf<Serial>()
+        }.flatMap { s ->
+
+            var list1 = mutableListOf<DatabaseReference>()
+            for (m in s as MutableList<String>) {
+                val myRef = database.getReference("film_titles").child(m)
+                list1.add(myRef)
+            }
+            return@flatMap Observable.fromIterable(list1)
+        }.flatMap { v ->
+            return@flatMap Observable.create<String> {
+                val myRef = v
+                myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+
+                        if (snapshot.value != null) {
+                            var list = snapshot.value as MutableList<String>
+                            var d = "%.2f".format(list[4].toDouble())
+                            var serial = Serial("1", list[0], "1", d, "false", "")
+                            Log.d("010101", "onDataChange: " + d)
+                            ls.add(serial)
+                            Log.d("xcxcxc", "onDataChange: " + ls)
 
 
-
-            var thread = Thread(Runnable {
-                for (s in list) {
-                    val myRef = database.getReference("film_titles").child(s)
-                    myRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                        override fun onCancelled(error: DatabaseError) {
+                            var presenter = UsersListPresenter()
+                            Collections.sort(ls, MyComparator())
+                            presenter.users = ls
+                            Thread(Runnable {
+                                while (ls.size < list.size) {}
+                                try {
+                                    recyclerFilms.post {
+                                        var adapter = SerialsAdapter5(presenter)
+                                        recyclerFilms.adapter = adapter
+                                    }
+                                } catch (e: NullPointerException) {}
+                                }).start()
                         }
-
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            if (snapshot.value != null) {
-                                var list = snapshot.value as MutableList<String>
-                                var d = "%.2f".format(list[4].toDouble())
-                                var serial = Serial("1", s, "1", d, "false", "")
-                                Log.d("010101", "onDataChange: " + list[4])
-                                listSerial2.add(serial)
-
-                            }
-                        }
-                    })
-
-                }
-            })
-
-            thread.start()
-
-
-            val thread2 = Thread(Runnable {
-                Thread.sleep(300)
-                var presenter = UsersListPresenter()
-                Collections.sort(listSerial2, MyComparator())
-                presenter.users = listSerial2
-                var adapter = SerialsAdapter5(presenter)
-                recyclerFilms.post(Runnable {
-                    recyclerFilms.adapter = adapter
-                    initRec(recyclerFilms)
+                    }
                 })
+            }
+        }.subscribeOn(newThread()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe { Log.d("TAG222", "onStart: " + it) }
 
-            })
-            thread2.start()
 
-
-        }, {})
+        initRec(recyclerFilms)
 
     }
 
 
     internal class MyComparator : Comparator<Serial> {
         override fun compare(o1: Serial, o2: Serial): Int {
-            var i1 = o1.opisanie.toDouble() * 100
-            var i2 = o2.opisanie.toDouble() * 100
+            var i1 = o1.opisanie.replace(",",".").toDouble() * 100
+            var i2 = o2.opisanie.replace(",",".").toDouble() * 100
             return i2.toInt().compareTo(i1.toInt())
         }
     }
@@ -170,11 +177,6 @@ class TopFirstQuartalFragment : MvpAppCompatFragment() {
 
         }
     }
-
-
 }
-
-
-
 
 

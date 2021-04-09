@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C3C3C3"
+    android:background="#C3c3c3"
     tools:context=".view.EnterActivity">
 
     <ImageView
@@ -28,55 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
-
-        <LinearLayout
-
-            android:id="@+id/ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3">
-
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp">
-
-            </com.google.android.gms.common.SignInButton>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sing_out_button2"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:text="Выход"
-                android:textAllCaps="false" />
-
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/enter"
-            android:layout_width="220dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:singleLine="false"
-            android:text="Вход без регистрации"
-            android:textAllCaps="false"
-            android:visibility="visible"
-            tools:layout_editor_absoluteY="308dp" />
-
-    </LinearLayout>
+        app:layout_constraintGuide_percent="0.22" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
